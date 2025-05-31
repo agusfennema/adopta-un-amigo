@@ -1,0 +1,8 @@
+<div *ngIf="loading">Cargando animales...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<ul *ngIf="!loading && !error">
+  <li *ngFor="let animal of animales">
+    <strong>{{ animal.nombre }}</strong> - {{ animal.especie }}
+  </li>
+</ul>
