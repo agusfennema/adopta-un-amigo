@@ -1,8 +1,17 @@
-<div *ngIf="loading">Cargando animales...</div>
-<div *ngIf="error">{{ error }}</div>
+<h2>🐶 Animales en adopción</h2>
 
-<ul *ngIf="!loading && !error">
-  <li *ngFor="let animal of animales">
-    <strong>{{ animal.nombre }}</strong> - {{ animal.especie }}
-  </li>
-</ul>
+<div *ngIf="cargando">Cargando animales...</div>
+
+<div *ngIf="!cargando && animales.length === 0">
+  No hay animales para mostrar.
+</div>
+
+<div *ngIf="animales.length > 0">
+  <div *ngFor="let animal of animales" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+    <h3>{{ animal.nombre }}</h3>
+    <img [src]="animal.imagen" alt="{{ animal.nombre }}" width="200" *ngIf="animal.imagen" />
+    <p><strong>Especie:</strong> {{ animal.especie }}</p>
+    <p><strong>Edad:</strong> {{ animal.edad }} años</p>
+    <p><strong>Descripción:</strong> {{ animal.descripcion }}</p>
+  </div>
+</div>
