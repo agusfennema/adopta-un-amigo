@@ -1,8 +1,8 @@
 <h2>🐶 Animales en adopción</h2>
 
-<div *ngIf="cargando">Cargando animales...</div>
+<div *ngIf="loading">Cargando animales...</div>
 
-<div *ngIf="!cargando && animales.length === 0">
+<div *ngIf="!loading && animales.length === 0">
   No hay animales para mostrar.
 </div>
 
@@ -14,4 +14,7 @@
     <p><strong>Edad:</strong> {{ animal.edad }} años</p>
     <p><strong>Descripción:</strong> {{ animal.descripcion }}</p>
   </div>
+  <div *ngIf="error" style="color: red;">
+  {{ error }}
+</div>
 </div>

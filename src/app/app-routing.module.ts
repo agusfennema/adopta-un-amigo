@@ -5,7 +5,8 @@ import { AnimalesComponent } from './components/animales/animales.component';
 import { AnimalFormComponent } from './components/animal-form/animal-form.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },  // redirige '' a 'home'
+  { path: 'home', component: HomeComponent },
   { path: 'animales', component: AnimalesComponent },
   { path: 'nuevo', component: AnimalFormComponent }
 ];
